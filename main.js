@@ -4,7 +4,9 @@ setTimeout(() => {
 
   if (target) {
     const d2dice = document.createElement("button");
+    d2dice.type = "button";
     const d3dice = document.createElement("button");
+    d3dice.type = "button";
     const img_1d2 = document.createElement("img");
     const img_1d3 = document.createElement("img");
     img_1d2.src = chrome.runtime.getURL("1d2.png");
@@ -33,7 +35,13 @@ setTimeout(() => {
 
 
     d2dice.addEventListener("click", () => {
-        const textd2 = document.getElementById("downshift-:rq:-input");
+        const textd2 = document.querySelector(".MuiInputBase-input.MuiInputBase-inputMultiline.css-o0s11j");
+        
+        if (!textd2) return;
+
+        const current=input.value.trim();
+
+
         textd2.value = "1d2";
         textd2.dispatchEvent(new Event("input", { bubbles: true }));
     });
