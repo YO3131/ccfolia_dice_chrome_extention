@@ -37,9 +37,9 @@ setTimeout(() => {
     d2dice.addEventListener("click", () => {
         const textd2 = document.querySelector(".MuiInputBase-input.MuiInputBase-inputMultiline.css-o0s11j");
         
-        if (!textd2) return;
+        // if (!textd2) return;
 
-        const current=input.value.trim();
+        // const current=input.value.trim();
 
 
         textd2.value = "1d2";
