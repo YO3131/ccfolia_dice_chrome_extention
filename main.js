@@ -36,19 +36,41 @@ setTimeout(() => {
 
     d2dice.addEventListener("click", () => {
         const textd2 = document.querySelector(".MuiInputBase-input.MuiInputBase-inputMultiline.css-o0s11j");
-        
-        // if (!textd2) return;
-
-        // const current=input.value.trim();
-
-
-        textd2.value = "1d2";
+        var current=textd2.value.trim();
+        if (current==""){//なにもないとき
+            textd2.value = "1D2";
+        }else{
+            var current=textd2.value.trim();
+            var d2Index = current.indexOf("D2")-1;
+            if(d2Index==-2){//すでに入力されているものは合ったがd2のコマンドがなかったとき
+                current += "+1D2";
+                textd2.value = current;
+            }else{//すでに入力されているものがあるため、ダイス数を一つ増やす
+                var numd2 = parseInt(current[d2Index]);
+                current = current.replace( numd2+"D2", (numd2+1)+"D2" );
+                textd2.value = current;
+            }
+        }
         textd2.dispatchEvent(new Event("input", { bubbles: true }));
     });
 
     d3dice.addEventListener("click", () => {
-        const textd3 = document.querySelector(".MuiInputBase-input.MuiInputBase-inputMultiline.css-o0s11j")
-        textd3.value = "1d3";
+        const textd3 = document.querySelector(".MuiInputBase-input.MuiInputBase-inputMultiline.css-o0s11j");
+        var current=textd3.value.trim();
+        if (current==""){
+            textd3.value = "1D3";
+        }else{
+            var current=textd3.value.trim();
+            var d3Index = current.indexOf("D3")-1;
+            if(d3Index==-2){
+                current += "+1D3";
+                textd3.value = current;
+            }else{
+                var numd3 = parseInt(current[d3Index]);
+                current = current.replace( numd3+"D3", (numd3+1)+"D3" );
+                textd3.value = current;
+            }
+        }
         textd3.dispatchEvent(new Event("input", { bubbles: true }));
     });
 
