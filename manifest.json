@@ -1,17 +1,23 @@
 {
   "manifest_version": 3,
   "name": "ccfolia dice extention",
-  "version": "1.1",
+  "version": "1.4",
   "description": "ココフォリアにダイスを拡張する",
   "content_scripts": [
     {
       "matches": ["https://ccfolia.com/rooms/*"],
-      "js": ["main.js"]
+      "js": [
+        "dom.js",
+        "dice.js",
+        "event.js",
+        "button.js",
+        "contents.js"
+      ]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["1d2.png", "1d3.png"],
+      "resources":  ["images/*"],
       "matches": ["https://ccfolia.com/*"]
     }
   ]
